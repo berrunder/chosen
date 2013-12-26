@@ -274,7 +274,7 @@ class Chosen extends AbstractChosen
     if target.length
       @result_highlight = target
       this.result_select(evt)
-      @search_field.focus()
+      @search_field
 
   search_results_mouseover: (evt) ->
     target = if $(evt.target).hasClass "active-result" then $(evt.target) else $(evt.target).parents(".active-result").first()
@@ -459,8 +459,10 @@ class Chosen extends AbstractChosen
         this.result_select(evt) if this.results_showing and not @is_multiple
         @mouse_on_container = false
         break
+      # на enter вешаем поведение, аналогичное табу
       when 13
-        evt.preventDefault()
+        this.result_select(evt) if this.results_showing and not @is_multiple
+        @mouse_on_container = false
         break
       when 38
         evt.preventDefault()
