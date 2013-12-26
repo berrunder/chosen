@@ -5,12 +5,14 @@
 $chosen-sprite: image-url('chosen-sprite.png');
 $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
 
+$border-color: #999;
+
 /* @group Base */
 .chosen-container {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  font-size: 13px;
+  font-size: 12px;
   zoom: 1;
   *display: inline;
   @include user-select(none);
@@ -21,7 +23,7 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
     z-index: 1010;
     @include box-sizing(border-box);
     width: 100%;
-    border: 1px solid #aaa;
+    border: 1px solid $border-color;
     border-top: 0;
     background: #fff;
     box-shadow: 0 4px 5px rgba(#000,.15);
@@ -41,18 +43,17 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
     position: relative;
     display: block;
     overflow: hidden;
-    padding: 0 0 0 8px;
-    height: 23px;
-    border: 1px solid #aaa;
-    border-radius: 5px;
+    padding: 0 0 0 3px;
+    height: 19px;
+    border: 1px solid $border-color;
     background-color: #fff;
     @include background(linear-gradient(top, #fff 20%, #f6f6f6 50%, #eee 52%, #f4f4f4 100%));
     background-clip: padding-box;
     box-shadow: 0 0 3px #fff inset, 0 1px 1px rgba(#000,.1);
-    color: #444;
+    color: #222222;
     text-decoration: none;
     white-space: nowrap;
-    line-height: 24px;
+    line-height: 19px;
   }
   .chosen-default {
     color: #999;
@@ -65,12 +66,12 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
     white-space: nowrap;
   }
   .chosen-single-with-deselect span {
-    margin-right: 38px;
+    margin-right: 26px;
   }
   .chosen-single abbr {
     position: absolute;
-    top: 6px;
-    right: 26px;
+    top: 4px;
+    right: 22px;
     display: block;
     width: 12px;
     height: 12px;
@@ -84,6 +85,18 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
     background-position: -42px -10px;
   }
   .chosen-single div {
+  	-moz-background-clip   : padding;
+    -webkit-background-clip: padding-box;
+    background-clip        : padding-box;
+    background-color: #c0d1c0;
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #c0d1c0), color-stop(0.5, #d2ded2));
+	background-image: -webkit-linear-gradient(center bottom, #d2ded2 0%, #c0d1c0 50%);
+	background-image: -moz-linear-gradient(center bottom, #d2ded2 0%, #c0d1c0 50%);
+	background-image: -o-linear-gradient(top, #d2ded2 0%, #c0d1c0 50%);
+	background-image: -ms-linear-gradient(top, #d2ded2 0%, #c0d1c0 50%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#d2ded2', endColorstr = '#c0d1c0', GradientType = 0);
+	background-image: linear-gradient(top, #d2ded2 0%, #c0d1c0 50%);
+	border-left: 1px solid $border-color;
     position: absolute;
     top: 0;
     right: 0;
@@ -94,23 +107,23 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
       display: block;
       width: 100%;
       height: 100%;
-      background: $chosen-sprite no-repeat 0px 2px;
+      background: $chosen-sprite no-repeat 3px 1px;
     }
   }
   .chosen-search {
     position: relative;
     z-index: 1010;
     margin: 0;
-    padding: 3px 4px;
+    padding: 2px 3px;
     white-space: nowrap;
     input[type="text"] {
       @include box-sizing(border-box);
       margin: 1px 0;
-      padding: 4px 20px 4px 5px;
+      padding: 3px 16px 3px 3px;
       width: 100%;
       height: auto;
       outline: 0;
-      border: 1px solid #aaa;
+      border: 1px solid $border-color;
       background: #fff $chosen-sprite no-repeat 100% -20px;
       @include background($chosen-sprite no-repeat 100% -20px, linear-gradient(#eee 1%, #fff 15%));
       font-size: 1em;
@@ -136,16 +149,17 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
-  margin: 0 4px 4px 0;
-  padding: 0 0 0 4px;
-  max-height: 240px;
+  margin: 0 3px 3px 0;
+  padding: 0 0 0 3px;
+  max-height: 290px;
   -webkit-overflow-scrolling: touch;
   li {
     display: none;
     margin: 0;
-    padding: 5px 6px;
+    padding: 2px 3px;
     list-style: none;
     line-height: 15px;
+    white-space: normal;
     -webkit-touch-callout: none;
     &.active-result {
       display: list-item;
@@ -171,7 +185,7 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
       cursor: default;
     }
     &.group-option {
-      padding-left: 15px;
+      padding-left: 20px;
     }
     em {
       font-style: normal;
@@ -192,7 +206,7 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
     width: 100%;
     height: auto !important;
     height: 1%;
-    border: 1px solid #aaa;
+    border: 1px solid $border-color;
     background-color: #fff;
     @include background-image(linear-gradient(#eee 1%, #fff 15%));
     cursor: text;
@@ -206,7 +220,7 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
       white-space: nowrap;
       input[type="text"] {
         margin: 1px 0;
-        padding: 5px;
+        padding: 3px;
         height: 15px;
         outline: 0;
         border: 0 !important;
@@ -226,7 +240,7 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
       position: relative;
       margin: 3px 0 3px 5px;
       padding: 3px 20px 3px 5px;
-      border: 1px solid #aaa;
+      border: 1px solid $border-color;
       border-radius: 3px;
       background-color: #e4e4e4;
       @include background-image(linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%));
@@ -283,7 +297,7 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
   }
   &.chosen-with-drop{
     .chosen-single {
-      border: 1px solid #aaa;
+      border: 1px solid $border-color;
       -moz-border-radius-bottomright: 0;
       border-bottom-right-radius: 0;
       -moz-border-radius-bottomleft: 0;
@@ -295,7 +309,7 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
       border-left: none;
       background: transparent;
       b {
-        background-position: -18px 2px;
+        background-position: -15px 2px;
       }
     }
   }
@@ -335,7 +349,7 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
     direction: rtl;
   }
   .chosen-single-with-deselect span {
-    margin-left: 38px;
+    margin-left: 26px;
   }
   .chosen-single div {
     right: auto;
